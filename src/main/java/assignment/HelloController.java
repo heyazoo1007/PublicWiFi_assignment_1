@@ -39,18 +39,17 @@ public class HelloController {
                 String wifiName = getTagValue("X_SWIFI_MAIN_NM", eElement);
                 String streetAddress = getTagValue("X_SWIFI_ADRES1", eElement);
                 String detailAddress = getTagValue("X_SWIFI_ADRES2", eElement);
-                String whereInstalled = getTagValue("X_SWIFI_INSTL_TY", eElement);
                 String typeOfInstall = getTagValue("X_SWIFI_INSTL_TY", eElement);
                 String companyOfInstall = getTagValue("X_SWIFI_INSTL_MBY", eElement);
                 String service = getTagValue("X_SWIFI_SVC_SE", eElement);
                 String typeOfNet = getTagValue("X_SWIFI_CMCWR", eElement);
-                String year = getTagValue("X_SWIFI_CNSTC_YEAR", eElement);
+                Integer year = Integer.parseInt(getTagValue("X_SWIFI_CNSTC_YEAR", eElement));
                 String inOrOut = getTagValue("X_SWIFI_INOUT_DOOR", eElement);
                 Long LAT = Long.parseLong(getTagValue("LAT", eElement));
                 Long LNT = Long.parseLong(getTagValue("LNT", eElement));
                 LocalDateTime workTime = LocalDateTime.parse(getTagValue("WORK_DTTM", eElement));
 
-
+                PublicWifiDto publicWifiDto = new PublicWifiDto(distance, manageNo, borough, wifiName, streetAddress, detailAddress, typeOfInstall, companyOfInstall, service, typeOfNet, year, inOrOut, LAT, LNT, workTime);
             }
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
