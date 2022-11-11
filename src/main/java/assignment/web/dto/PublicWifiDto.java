@@ -1,9 +1,9 @@
-package assignment;
+package assignment.web.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -19,14 +19,15 @@ public class PublicWifiDto {
     String companyOfInstall; // 설치기관
     String whichService; // 서비스 구분
     String typeOfNet; // 망종류
-    Integer year; // 설치 년도
+    Integer yearOfInstall; // 설치 년도
     String inOrOut; // 실내외 구분
-    String condition; // wifi 접속환경
-    Long LAT; // y좌표
-    Long LNT; // x좌표
+    String wifiCondition; // wifi 접속환경
+    Float LAT; // y좌표
+    Float LNT; // x좌표
     String workTime; // 작업 일자
 
-    public PublicWifiDto(String manageNo, String borough, String wifiName, String streetAddress, String detailAddress, String floor, String typeOfInstall, String companyOfInstall, String whichService, String typeOfNet, Integer year, String inOrOut, String condition, Long LAT, Long LNT, String workTime) {
+    @Builder
+    public PublicWifiDto(String manageNo, String borough, String wifiName, String streetAddress, String detailAddress, String floor, String typeOfInstall, String companyOfInstall, String whichService, String typeOfNet, Integer yearOfInstall, String inOrOut, String wifiCondition, Float LAT, Float LNT, String workTime) {
         this.manageNo = manageNo;
         this.borough = borough;
         this.wifiName = wifiName;
@@ -37,9 +38,9 @@ public class PublicWifiDto {
         this.companyOfInstall = companyOfInstall;
         this.whichService = whichService;
         this.typeOfNet = typeOfNet;
-        this.year = year;
+        this.yearOfInstall = yearOfInstall;
         this.inOrOut = inOrOut;
-        this.condition = condition;
+        this.wifiCondition = wifiCondition;
         this.LAT = LAT;
         this.LNT = LNT;
         this.workTime = workTime;
